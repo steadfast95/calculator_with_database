@@ -48,7 +48,6 @@ public class MainController {
     private void procOperation(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         String val = ((javafx.scene.control.Button) event.getSource()).getAccessibleText().toString();
         String val2 = ((javafx.scene.control.Button) event.getSource()).getText();
-        System.out.println(val);
         if (!Enum.operations.CALCULATE.toString().equals(val)) {
             if (!operator.isEmpty()) {
                 return;
@@ -63,7 +62,6 @@ public class MainController {
             String result = String.valueOf(model.calculation(num1, num2, operator));
             output.setText(result);
             buffer = String.valueOf(num1) + sign + String.valueOf(num2) + "=" + result;
-            System.out.println(buffer);
             operator = "";
             execDB();
             begin = true;
@@ -79,7 +77,6 @@ public class MainController {
         DbHandler dbh = new DbHandler();
         dbh.CreateDB();
         dbh.WriteDB(getBuffer());
-        dbh.ReadDB();
         dbh.printTable(column_id, column_oper, tableView);
         dbh.CloseDB();
     }

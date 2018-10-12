@@ -1,19 +1,19 @@
 package com.mvn.javafx;
 
-import com.mvn.javafx.Enum.operations;
-
 import java.sql.SQLException;
+
+import static com.mvn.javafx.Enum.operations.*;
 
 public class Model {
 
     public float calculation(float a, float b, String operation) throws SQLException, ClassNotFoundException {
-        if (operations.PLUS.toString().equals(operation)) {
+        if (PLUS.toString().equals(operation)) {
             return a + b;
-        } else if (operations.MINUS.toString().equals(operation)) {
+        } else if (MINUS.toString().equals(operation)) {
             return a - b;
-        } else if (operations.MULTIPLICATION.toString().equals(operation)) {
+        } else if (MULTIPLICATION.toString().equals(operation)) {
             return a * b;
-        } else if (operations.DIVISION.toString().equals(operation)) {
+        } else if (DIVISION.toString().equals(operation)) {
             if (b == 0) {
                 return 0;
             }

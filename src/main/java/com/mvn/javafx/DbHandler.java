@@ -34,31 +34,17 @@ public class DbHandler {
     public void CreateDB() throws ClassNotFoundException, SQLException {
         statmt = connection.createStatement();
         statmt.execute("CREATE TABLE if not exists 'Calculation' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'operation' TEXT );");
-        System.out.println("Таблица создана или уже существует.");
     }
 
     public void WriteDB(String op) throws SQLException {
         statmt.execute("INSERT INTO 'Calculation' ('operation') VALUES (" + "'" + op + "'" + "); ");
-        System.out.println("Таблица заполнена");
-    }
-
-    public void ReadDB() throws SQLException {
-        resSet = statmt.executeQuery("SELECT * FROM Calculation ORDER BY id DESC LIMIT 20");
-        while (resSet.next()) {
-            int id = resSet.getInt("id");
-            String operation = resSet.getString("operation");
-            System.out.println("ID = " + id);
-            System.out.println("operation = " + operation);
-            System.out.println();
-        }
-        System.out.println("Таблица выведена");
     }
 
     public void printTable(TableColumn tableColumn, TableColumn tableColumn2, TableView tableView) {
         try {
-            ResultSet rs = statmt.executeQuery("SELECT * FROM Calculation ORDER BY id DESC LIMIT 20");
-            while (rs.next()) {
-                list.add(new Operation(rs.getInt("id"), rs.getString("operation")));
+            resSet = statmt.executeQuery("SELECT * FROM Calculation ORDER BY id DESC LIMIT 20");
+            while (resSet.next()) {
+                list.add(new Operation(resSet.getInt("id"), resSet.getString("operation")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,7 +58,6 @@ public class DbHandler {
         connection.close();
         statmt.close();
         resSet.close();
-        System.out.println("Соединения закрыты");
     }
 }
 
