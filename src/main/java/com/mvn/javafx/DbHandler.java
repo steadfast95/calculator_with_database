@@ -13,8 +13,8 @@ import java.sql.*;
 public class DbHandler {
     public static Statement statmt;
     public static ResultSet resSet;
-    //    private static final String CON_STR = "jdbc:sqlite:D:\\IntelliJ IDEA 2018.2.4\\project\\comjavafxmvn\\src\\main\\resources\\dbf\\sqlite.s3db";
-    private static final String CON_STR = "jdbc:sqlite:./ssqlite.s3db";
+        private static final String CON_STR = "jdbc:sqlite:D:\\IntelliJ IDEA 2018.2.4\\project\\comjavafxmvn\\src\\main\\resources\\dbf\\sqlite.s3db";
+//    private static final String CON_STR = "jdbc:sqlite:./ssqlite.s3db";
     private static DbHandler instance = null;
     public ObservableList<Operation> list = FXCollections.observableArrayList();
 

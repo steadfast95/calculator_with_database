@@ -13,15 +13,8 @@ public class Operation {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getOperation() {
         return operation;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
 }
