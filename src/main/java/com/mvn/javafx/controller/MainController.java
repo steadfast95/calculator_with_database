@@ -1,6 +1,7 @@
 package com.mvn.javafx.controller;
 
 import com.mvn.javafx.DbHandler;
+import com.mvn.javafx.Enum;
 import com.mvn.javafx.Model;
 import com.mvn.javafx.Operation;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ public class MainController {
     private float num2 = 0;
     private boolean begin = true;
     private String operator = "";
+    private String sign = "";
     private Model model = new Model();
     String buffer = "";
 
@@ -44,12 +46,15 @@ public class MainController {
 
     @FXML
     private void procOperation(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
-        String val = ((javafx.scene.control.Button) event.getSource()).getText();
-        if (!"=".equals(val)) {
+        String val = ((javafx.scene.control.Button) event.getSource()).getAccessibleText().toString();
+        String val2 = ((javafx.scene.control.Button) event.getSource()).getText();
+        System.out.println(val);
+        if (!Enum.operations.CALCULATE.toString().equals(val)) {
             if (!operator.isEmpty()) {
                 return;
             }
             operator = val;
+            sign=val2;
             num1 = Float.parseFloat(output.getText());
             output.setText("");
         } else {
@@ -57,7 +62,7 @@ public class MainController {
             num2 = Float.parseFloat(output.getText());
             String result = String.valueOf(model.calculation(num1, num2, operator));
             output.setText(result);
-            buffer = String.valueOf(num1) + operator + String.valueOf(num2) + "=" + result;
+            buffer = String.valueOf(num1) + sign + String.valueOf(num2) + "=" + result;
             System.out.println(buffer);
             operator = "";
             execDB();
