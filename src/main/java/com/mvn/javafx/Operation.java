@@ -4,9 +4,9 @@ public class Operation {
     private String operation;
     private Integer id;
 
-    public Operation( Integer id,String operation){
-        this.operation=operation;
-        this.id=id;
+    public Operation(Integer id, String operation) {
+        this.operation = operation;
+        this.id = id;
     }
 
     public int getId() {
@@ -16,8 +16,6 @@ public class Operation {
     public void setId(Integer id) {
         this.id = id;
     }
-
-
 
     public String getOperation() {
         return operation;

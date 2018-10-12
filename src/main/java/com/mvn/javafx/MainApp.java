@@ -1,6 +1,5 @@
 package com.mvn.javafx;
 
-import com.mvn.javafx.controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +20,5 @@ public class MainApp extends Application {
         stage.setTitle("Simple calculatoer + history in db");
         stage.setScene(new Scene(root));
         stage.show();
-
     }
 }
